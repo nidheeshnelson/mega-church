@@ -11,5 +11,5 @@ public class PostOfficeDTO {
     private String name;
 
     @Schema(description = "Associated PIN code")
-    private PinCodeDTO pinCode;
+    private String pinCode;
 }

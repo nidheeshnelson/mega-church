@@ -14,6 +14,6 @@ public class LocalBodyDTO {
     @Schema(description = "Type of the local body (Panchayat, Municipality, Corporation, etc.)")
     private LocalBodyType type;
 
-    @Schema(description = "Associated post office")
-    private PostOfficeDTO postOffice;
+    @Schema(description = "Address of the local body")
+    private AddressDTO OfficeAddress;
 }

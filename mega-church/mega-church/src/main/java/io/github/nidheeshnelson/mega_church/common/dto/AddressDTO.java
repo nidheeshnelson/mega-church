@@ -22,13 +22,16 @@ public class AddressDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Schema(description = "House or building name", example = "Thanal House")
-    private String houseName;
+    private String buildingName;
 
     @Schema(description = "Street or road name", example = "Kuravankonam Road")
     private String street;
 
-    @Schema(description = "Local area or neighborhood", example = "Pattom")
-    private String locality;
+    @Schema(description = "Specific place name or village", example = "Pattom")
+    private String place;
+
+    @Schema(description = "Nearby well-known location or point of reference", example = "Near Kendriya Vidyalaya")
+    private String landmark;
 
     @Schema(description = "Country information")
     private CountryDTO country;
@@ -41,9 +44,6 @@ public class AddressDTO implements Serializable {
 
     @Schema(description = "Taluk or sub-district")
     private TalukDTO taluk;
-
-    @Schema(description = "PIN code details")
-    private PinCodeDTO pinCode;
 
     @Schema(description = "Post office details")
     private PostOfficeDTO postOffice;
