@@ -26,17 +26,14 @@ public class MemberDTO implements Serializable {
     @Schema(description = "Unique ID of the member", example = "101")
     private Long id;
 
-    @Schema(description = "Full name of the member", example = "John Doe")
-    private String name;
+    @Schema(description = "Full name of the pastor")
+    private NameDTO name;
 
-    @Schema(description = "Email address of the member", example = "john.doe@example.com")
-    private String email;
-
-    @Schema(description = "Mobile number", example = "+919999999999")
-    private String phone;
+    @Schema(description = "Contact details of the individual")
+    private ContactDTO contactDetails;
     
     @Schema(description = "The family this member belongs to")
-    private FamilyDTO family;
+    private HouseDTO house;
 
     @Schema(description = "The address this member belongs to")
     private AddressDTO address;

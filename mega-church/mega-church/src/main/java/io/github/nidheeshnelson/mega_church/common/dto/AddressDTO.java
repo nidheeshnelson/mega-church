@@ -30,6 +30,12 @@ public class AddressDTO implements Serializable {
     @Schema(description = "Specific place name or village", example = "Pattom")
     private String place;
 
+    @Schema(description = "Street address of the individual", example = "123 Church St.")
+    private String addressLine1;
+
+    @Schema(description = "Apartment or suite number", example = "Apt 101")
+    private String addressLine2;
+
     @Schema(description = "Nearby well-known location or point of reference", example = "Near Kendriya Vidyalaya")
     private String landmark;
 
