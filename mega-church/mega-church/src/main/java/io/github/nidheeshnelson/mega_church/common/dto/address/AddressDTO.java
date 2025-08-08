@@ -1,4 +1,4 @@
-package io.github.nidheeshnelson.mega_church.common.dto;
+package io.github.nidheeshnelson.mega_church.common.dto.address;
 
 import java.io.Serial;
 import java.io.Serializable;

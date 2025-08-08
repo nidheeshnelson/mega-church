@@ -3,6 +3,7 @@ package io.github.nidheeshnelson.mega_church.common.dto;
 import java.io.Serial;
 import java.io.Serializable;
 
+import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
 import io.github.nidheeshnelson.mega_church.common.enumeration.Language;
 import io.github.nidheeshnelson.mega_church.common.enumeration.MemberStatus;
 import io.github.nidheeshnelson.mega_church.common.enumeration.MembershipType;
