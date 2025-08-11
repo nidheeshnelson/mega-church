@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.person.MemberDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

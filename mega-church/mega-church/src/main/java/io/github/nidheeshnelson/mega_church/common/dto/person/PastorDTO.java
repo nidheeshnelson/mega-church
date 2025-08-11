@@ -1,17 +1,25 @@
-package io.github.nidheeshnelson.mega_church.common.dto;
+package io.github.nidheeshnelson.mega_church.common.dto.person;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+import io.github.nidheeshnelson.mega_church.common.dto.ContactDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.HouseDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 @Schema(description = "Represents a Pastor in the church")
-public class PastorDTO {
+public class PastorDTO implements Serializable,PersonDTO {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Schema(description = "Unique identifier for the pastor", example = "1")
-    private Long pastorId;
+    private Long id;
 
     @Schema(description = "Full name of the pastor")
     private NameDTO name;

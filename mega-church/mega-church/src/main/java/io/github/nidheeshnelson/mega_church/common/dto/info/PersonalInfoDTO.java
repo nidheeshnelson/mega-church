@@ -1,14 +1,20 @@
-package io.github.nidheeshnelson.mega_church.common.dto;
+package io.github.nidheeshnelson.mega_church.common.dto.info;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 
+import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 @Schema(description = "Represents the personal information of an individual")
-public class PersonalInfoDTO {
+public class PersonalInfoDTO implements Serializable {
+    
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Schema(description = "Full name of the pastor")
     private NameDTO name;

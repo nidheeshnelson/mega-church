@@ -1,8 +1,11 @@
-package io.github.nidheeshnelson.mega_church.common.dto;
+package io.github.nidheeshnelson.mega_church.common.dto.person;
 
 import java.io.Serial;
 import java.io.Serializable;
 
+import io.github.nidheeshnelson.mega_church.common.dto.ContactDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.HouseDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
 import io.github.nidheeshnelson.mega_church.common.enumeration.Language;
 import io.github.nidheeshnelson.mega_church.common.enumeration.MemberStatus;
@@ -19,7 +22,7 @@ import lombok.Data;
  */
 @Data
 @Schema(name="MemberDTO", description = "Personal details about a member")
-public class MemberDTO implements Serializable {
+public class MemberDTO implements Serializable,PersonDTO {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -53,4 +56,5 @@ public class MemberDTO implements Serializable {
 
     @Schema(description = "Preferred language for communication", example = "ENGLISH")
     private Language preferredLanguage;
+
 }
