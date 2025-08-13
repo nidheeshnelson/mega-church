@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 import io.github.nidheeshnelson.mega_church.common.dto.ContactDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.HouseDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
 import io.github.nidheeshnelson.mega_church.common.enumeration.Language;
@@ -37,7 +37,7 @@ public class MemberDTO implements Serializable,PersonDTO {
     private ContactDTO contactDetails;
     
     @Schema(description = "The family this member belongs to")
-    private HouseDTO house;
+    private HouseholdDTO house;
 
     @Schema(description = "The address this member belongs to")
     private AddressDTO address;

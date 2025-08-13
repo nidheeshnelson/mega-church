@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import io.github.nidheeshnelson.mega_church.common.dto.ContactDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.HouseDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -37,7 +37,7 @@ public class PastorDTO implements Serializable,PersonDTO {
     private String ministry;
 
     @Schema(description = "List of houses or groups the pastor oversees", example = "[\"Alpha Group\", \"Beta Group\"]")
-    private List<HouseDTO> houseNames;
+    private List<HouseholdDTO> houseNames;
 
     @Schema(description = "Date when the pastor's details were last updated")
     private LocalDate lastModifiedDate;

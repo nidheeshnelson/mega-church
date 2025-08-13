@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "Represents a House or Group within the church")
-public class HouseDTO {
+public class HouseholdDTO {
 
     @Schema(description = "Unique identifier for the house", example = "1")
     private Long houseId;
