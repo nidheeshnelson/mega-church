@@ -22,25 +22,7 @@ import lombok.Data;
  */
 @Data
 @Schema(name="MemberDTO", description = "Personal details about a member")
-public class MemberDTO implements Serializable,PersonDTO {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    @Schema(description = "Unique ID of the member", example = "101")
-    private Long id;
-
-    @Schema(description = "Full name of the pastor")
-    private NameDTO name;
-
-    @Schema(description = "Contact details of the individual")
-    private ContactDTO contactDetails;
-    
-    @Schema(description = "The family this member belongs to")
-    private HouseholdDTO house;
-
-    @Schema(description = "The address this member belongs to")
-    private AddressDTO address;
+public class MemberDTO extends PersonDTO implements Serializable,Person {
 
     @Schema(
         description = "Status of the member (e.g., ACTIVE, INACTIVE, SUSPENDED, DECEASED, TRANSFERRED, PENDING_APPROVAL)",

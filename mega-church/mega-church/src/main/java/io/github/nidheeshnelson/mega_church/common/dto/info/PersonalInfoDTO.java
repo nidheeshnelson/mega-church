@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -16,9 +15,6 @@ public class PersonalInfoDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "Full name of the pastor")
-    private NameDTO name;
-
     @Schema(description = "Date of birth of the individual", example = "1985-05-15")
     private LocalDate dateOfBirth;
 
@@ -27,15 +23,6 @@ public class PersonalInfoDTO implements Serializable {
 
     @Schema(description = "Nationality of the individual", example = "American")
     private String nationality;
-
-    @Schema(description = "Email address of the individual", example = "john.doe@example.com")
-    private String email;
-
-    @Schema(description = "Phone number of the individual", example = "+1-555-555-5555")
-    private String phoneNumber;
-
-    @Schema(description = "The address this member belongs to")
-    private AddressDTO address;
 
     @Schema(description = "Unique identification number for the individual", example = "123456789")
     private String idNumber;
