@@ -1,10 +1,10 @@
-package io.github.nidheeshnelson.mega_church.common.dto.person;
+package io.github.nidheeshnelson.mega_church.church.dto;
 
 import java.io.Serial;
 import java.time.LocalDate;
 import java.util.List;
 
-import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.person.PersonDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(name = "PastorDTO",description = "Represents a Pastor in the church")
@@ -23,7 +23,7 @@ public class PastorDTO extends PersonDTO {
     private String ministry;
 
     @Schema(description = "List of houses or groups the pastor oversees", example = "[\"Alpha Group\", \"Beta Group\"]")
-    private List<HouseholdDTO> houseNames;
+    private List<PersonDTO> belevers;
 
     @Schema(description = "Date when the pastor's details were last updated")
     private LocalDate lastModifiedDate;

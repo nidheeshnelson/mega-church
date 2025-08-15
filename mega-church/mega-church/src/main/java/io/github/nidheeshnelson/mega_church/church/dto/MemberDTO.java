@@ -1,4 +1,4 @@
-package io.github.nidheeshnelson.mega_church.common.dto.person;
+package io.github.nidheeshnelson.mega_church.church.dto;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -7,6 +7,8 @@ import io.github.nidheeshnelson.mega_church.common.dto.ContactDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.person.Person;
+import io.github.nidheeshnelson.mega_church.common.dto.person.PersonDTO;
 import io.github.nidheeshnelson.mega_church.common.enumeration.Language;
 import io.github.nidheeshnelson.mega_church.common.enumeration.MemberStatus;
 import io.github.nidheeshnelson.mega_church.common.enumeration.MembershipType;
@@ -20,9 +22,9 @@ import lombok.Data;
  * 
  * @author Nidheesh_Nelson
  */
-@Data
+
 @Schema(name="MemberDTO", description = "Personal details about a member")
-public class MemberDTO extends PersonDTO implements Serializable,Person {
+public class MemberDTO extends PersonDTO {
 
     @Schema(
         description = "Status of the member (e.g., ACTIVE, INACTIVE, SUSPENDED, DECEASED, TRANSFERRED, PENDING_APPROVAL)",

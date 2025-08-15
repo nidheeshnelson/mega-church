@@ -1,5 +1,7 @@
 package io.github.nidheeshnelson.mega_church.common.dto.person;
 
+import io.github.nidheeshnelson.mega_church.church.dto.MemberDTO;
+import io.github.nidheeshnelson.mega_church.church.dto.PastorDTO;
 import io.github.nidheeshnelson.mega_church.common.enumeration.PersonType;
 import io.swagger.v3.oas.annotations.media.Schema;
 

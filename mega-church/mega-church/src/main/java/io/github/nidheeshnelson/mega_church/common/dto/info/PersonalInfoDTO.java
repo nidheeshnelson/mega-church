@@ -3,8 +3,10 @@ package io.github.nidheeshnelson.mega_church.common.dto.info;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.person.PersonDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -25,15 +27,22 @@ public class PersonalInfoDTO implements Serializable {
     private String nationality;
 
     @Schema(description = "Unique identification number for the individual", example = "123456789")
-    private String idNumber;
+    private List<IdentityInfoDTO> idInfos;
 
     @Schema(description = "Passport number of the individual", example = "A12345678")
-    private String passportNumber;
+    private PersonDTO father;
 
     @Schema(description = "Marital status of the individual", example = "Single")
-    private String maritalStatus;
+    private PersonDTO mother;
 
     @Schema(description = "Name of the spouse, if applicable", example = "Jane Doe")
-    private String spouseName;
+    private PersonDTO guardian;
+
+    @Schema(description = "Name of the spouse, if applicable", example = "Jane Doe")
+    private PersonDTO spouse;
+
+    @Schema(description = "Name of the spouse, if applicable", example = "Jane Doe")
+    private List<PersonDTO> Children;
+
 
 }
