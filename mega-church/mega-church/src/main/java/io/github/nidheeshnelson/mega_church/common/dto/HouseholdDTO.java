@@ -3,7 +3,6 @@ package io.github.nidheeshnelson.mega_church.common.dto;
 import java.time.LocalDate;
 import java.util.List;
 
-import io.github.nidheeshnelson.mega_church.church.dto.MemberDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.person.PersonDTO;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -1,7 +1,5 @@
 package io.github.nidheeshnelson.mega_church.common.dto.person;
 
-import io.github.nidheeshnelson.mega_church.church.dto.MemberDTO;
-import io.github.nidheeshnelson.mega_church.church.dto.PastorDTO;
 import io.github.nidheeshnelson.mega_church.common.enumeration.PersonType;
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -16,8 +14,6 @@ public interface Person {
 @Schema(description = "Method to retrieve the DTO based on person in the church type")
     default PersonDTO getPersonDTO(PersonType personType) {
         return switch (personType) {
-            case PASTOR -> new PastorDTO(); // Return PastorDTO
-            case MEMBER -> new MemberDTO(); // Return MemberDTO
             case NON_MEMBER -> new NonMemberDTO(); // Return NonMemberDTO
             case MINOR -> new MinorDTO(); // Return NonMemberDTO
             default -> null; // Return null if no matching type
