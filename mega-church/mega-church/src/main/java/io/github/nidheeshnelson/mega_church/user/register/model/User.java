@@ -1,10 +1,15 @@
 package io.github.nidheeshnelson.mega_church.user.register.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import io.github.nidheeshnelson.mega_church.common.model.GroupBase;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,7 +30,10 @@ public class User {
 
     private String name;
 
+    @ManyToMany(mappedBy = "members")
+    private Set<GroupBase> groups = new HashSet<>();
+
     // One user can have many orders
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private java.util.List<io.github.nidheeshnelson.mega_church.task.model.Task> Task;
+    private java.util.List<io.github.nidheeshnelson.mega_church.job.model.Task> Task;
 }
