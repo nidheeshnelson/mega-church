@@ -95,4 +95,41 @@ public class Job {
     private List<Task> tasks = new ArrayList<>();
 
     // --- Getters and Setters omitted for brevity ---
+
+        /**
+     * Method to assign this job to a group.
+     *
+     * @param group The group to which the job will be assigned.
+     */
+    public void assignToGroup(GroupBase group) {
+        this.assignedGroup = group;
+        group.getMembers().forEach(user -> {
+            // Optionally, you can assign tasks to users in the group if necessary.
+        });
+    }
+
+    /**
+     * Method to remove the job from its assigned group.
+     */
+    public void removeFromGroup() {
+        if (this.assignedGroup != null) {
+            this.assignedGroup = null;
+        }
+    }
+
+    /**
+     * Method to create and add a task to the job.
+     *
+     * @param title The title of the task.
+     * @param description The description of the task.
+     * @param startDate The start date/time of the task.
+     * @param endDate The end date/time of the task.
+     * @return The created task.
+     */
+    public Task createTask(String title, String description, LocalDateTime startDate, LocalDateTime endDate) {
+        Task task = new Task(title, description, startDate, endDate);
+        task.setJob(this); // Associate task with this job
+        tasks.add(task); // Add task to the job's task list
+        return task;
+    }
 }

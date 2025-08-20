@@ -16,6 +16,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -54,6 +55,22 @@ public abstract class GroupBase {
     public void removeMember(User user) {
         if (members.remove(user)) {
             user.getGroups().remove(this);
+        }
+    }
+
+    @OneToOne
+    @JoinColumn(name = "group_head_id")
+    private User groupHead; // Group head is a user
+
+    public void setGroupHead(User user) {
+        this.groupHead = user;
+        user.getGroups().add(this);
+    }
+
+    public void removeGroupHead() {
+        if (this.groupHead != null) {
+            this.groupHead.getGroups().remove(this);
+            this.groupHead = null;
         }
     }
 }

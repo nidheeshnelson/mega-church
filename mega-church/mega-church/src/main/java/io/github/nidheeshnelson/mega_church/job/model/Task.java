@@ -66,6 +66,12 @@ public class Task {
     @Column(name = "description", length = 500)
     private String description;
 
+    @Column(name = "start_date", nullable = false, updatable = true)
+    private LocalDateTime startDate;
+
+    @Column(name = "end_date", nullable = false, updatable = true)
+    private LocalDateTime endDate;
+
     /** The date/time when the task was created (immutable). */
     @Column(name = "created_date", nullable = false, updatable = false)
     private LocalDateTime createdDate;
@@ -93,12 +99,7 @@ public class Task {
     @JoinColumn(name = "assigned_to_user_id", referencedColumnName = "id")
     private User assignedToUser;
 
-    /** The family/group associated with this task (optional). */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "family_group_id", referencedColumnName = "id")
-    private FamilyGroup familyGroup;
-
-    /** The job this task belongs to (mandatory). */
+   /** The job this task belongs to (mandatory). */
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "job_id", referencedColumnName = "id", nullable = false)
     private Job job;
@@ -115,6 +116,13 @@ public class Task {
     @Enumerated(EnumType.STRING)
     @Column(name = "recurring_interval")
     private RecurringInterval recurringInterval;
+
+        public Task(String title, String description, LocalDateTime startDate, LocalDateTime endDate) {
+        this.title = title;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     /**
      * Automatically sets the createdDate when the entity is first persisted.
