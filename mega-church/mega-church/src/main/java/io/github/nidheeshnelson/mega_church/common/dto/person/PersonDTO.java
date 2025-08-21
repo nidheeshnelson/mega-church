@@ -2,12 +2,11 @@ package io.github.nidheeshnelson.mega_church.common.dto.person;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 import io.github.nidheeshnelson.mega_church.common.dto.ContactDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
 import io.github.nidheeshnelson.mega_church.common.dto.NameDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.info.PersonalInfoDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -24,9 +23,15 @@ public class PersonDTO implements Serializable {
     @Schema(description = "Full name of the pastor")
     private NameDTO name;
 
-    @Schema(description = "The address this member belongs to")
-    private PersonalInfoDTO personalInfo;
+    @Schema(description = "Personal information")
+    private PersonalInfoDTO personal;
 
+    @Schema(description = "Government-issued identity documents")
+    private List<IdentityInfoDTO> identities;
+
+    @Schema(description = "Family relationships")
+    private FamilyInfoDTO family;
+    
     @Schema(description = "Contact details of the individual")
     private ContactDTO contactDetails;
     
@@ -34,6 +39,6 @@ public class PersonDTO implements Serializable {
     private HouseholdDTO house;
 
     @Schema(description = "The address this member belongs to")
-    private AddressDTO address;
+    private PersonalAddress address;
 
 }

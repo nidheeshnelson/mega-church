@@ -1,4 +1,4 @@
-package io.github.nidheeshnelson.mega_church.common.dto.info;
+package io.github.nidheeshnelson.mega_church.common.dto.person;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
