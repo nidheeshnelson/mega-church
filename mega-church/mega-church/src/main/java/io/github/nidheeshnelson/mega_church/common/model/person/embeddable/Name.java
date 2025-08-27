@@ -1,16 +1,22 @@
 package io.github.nidheeshnelson.mega_church.common.model.person.embeddable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
+@Schema(name = "Name")
 @Embeddable
 public class Name {
-    @Schema(description = "First name of the person", example = "John")
+
+    @Schema(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Schema(description = "Middle name of the person", example = "William")
+    @Schema(name = "middleName")
+    @Column(name = "middle_name")
     private String middleName;
 
-    @Schema(description = "Last name of the person", example = "Doe")
+    @Schema(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 }

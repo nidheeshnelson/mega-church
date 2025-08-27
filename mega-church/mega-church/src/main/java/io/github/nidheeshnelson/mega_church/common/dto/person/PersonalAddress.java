@@ -1,27 +1,33 @@
 package io.github.nidheeshnelson.mega_church.common.dto.person;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@Schema(description = "Personal address details")
-public class PersonalAddress {
+@Schema(name = "PersonalAddress", description = "Personal address details")
+public class PersonalAddress implements Serializable {
 
-    @Schema(description = "House or building name", example = "Thanal House")
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Schema(name = "buildingName", description = "House or building name", example = "Thanal House")
     private String buildingName;
 
-    @Schema(description = "Street or road name", example = "Kuravankonam Road")
+    @Schema(name = "street", description = "Street or road name", example = "Kuravankonam Road")
     private String street;
 
-    @Schema(description = "Specific place name or village", example = "Pattom")
+    @Schema(name = "place", description = "Specific place name or village", example = "Pattom")
     private String place;
 
-    @Schema(description = "Street address of the individual", example = "123 Church St.")
+    @Schema(name = "addressLine1", description = "Street address of the individual", example = "123 Church St.")
     private String addressLine1;
 
-    @Schema(description = "Apartment or suite number", example = "Apt 101")
+    @Schema(name = "addressLine2", description = "Apartment or suite number", example = "Apt 101")
     private String addressLine2;
 
-    @Schema(description = "pin code", example = "695524")
+    @Schema(name = "pin", description = "pin code", example = "695524")
     private long pin;
 }

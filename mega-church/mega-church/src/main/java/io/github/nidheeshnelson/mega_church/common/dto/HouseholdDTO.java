@@ -1,6 +1,7 @@
 package io.github.nidheeshnelson.mega_church.common.dto;
 
-import java.time.LocalDate;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
@@ -9,19 +10,22 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@Schema(description = "Represents a House or Group within the church")
-public class HouseholdDTO {
+@Schema(name = "HouseholdDTO", description = "Represents a House or Group within the church")
+public class HouseholdDTO implements Serializable {
 
-    @Schema(description = "Unique identifier for the house", example = "1")
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Schema(name = "houseId", description = "Unique identifier for the house", example = "1")
     private Long houseId;
 
-    @Schema(description = "Name of the house or group", example = "Alpha Group")
+    @Schema(name = "houseName", description = "Name of the house or group", example = "Alpha Group")
     private String houseName;
 
-    @Schema(description = "Address of the house or group")
+    @Schema(name = "address", description = "Address of the house or group")
     private AddressDTO address;
 
-    @Schema(description = "List of members in the house")
+    @Schema(name = "houseMembers", description = "List of members in the house")
     private List<PersonDTO> houseMembers;
 
 }

@@ -8,27 +8,27 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@Schema(description = "Family relationships of the individual")
+@Schema(name = "FamilyInfoDTO", description = "Family relationships of the individual")
 public class FamilyInfoDTO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "Father (if known)")
+    @Schema(name = "father", description = "Father (if known)")
     private PersonRefDTO father;
 
-    @Schema(description = "Mother (if known)")
+    @Schema(name = "mother", description = "Mother (if known)")
     private PersonRefDTO mother;
 
-    @Schema(description = "Guardian (if applicable)")
+    @Schema(name = "guardian", description = "Guardian (if applicable)")
     private PersonRefDTO guardian;
 
-    @Schema(description = "Spouse (if applicable)")
+    @Schema(name = "spouse", description = "Spouse (if applicable)")
     private PersonRefDTO spouse;
 
-    @Schema(description = "Children (if any)")
+    @Schema(name = "children", description = "Children (if any)")
     private List<PersonRefDTO> children; // note: lower camelCase
 
-    @Schema(description = "Siblings (if any)")
+    @Schema(name = "siblings", description = "Siblings (if any)")
     private List<PersonRefDTO> siblings; // Added siblings
 }
