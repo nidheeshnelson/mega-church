@@ -1,33 +1,34 @@
-package io.github.nidheeshnelson.mega_church.common.dto.person;
-
-import java.io.Serial;
-import java.io.Serializable;
+package io.github.nidheeshnelson.mega_church.common.model.address.embeddable;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
-@Data
-@Schema(name = "PersonalAddress", description = "Personal address details")
-public class PersonalAddress implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
+@Embeddable
+public class QuickAddress {
 
     @Schema(name = "buildingName", description = "House or building name", example = "Thanal House")
+    @Column(name = "building_name")
     private String buildingName;
 
     @Schema(name = "street", description = "Street or road name", example = "Kuravankonam Road")
+    @Column(name = "street")
     private String street;
 
     @Schema(name = "place", description = "Specific place name or village", example = "Pattom")
+    @Column(name = "place")
     private String place;
 
     @Schema(name = "addressLine1", description = "Street address of the individual", example = "123 Church St.")
+    @Column(name = "address_line_1")
     private String addressLine1;
 
     @Schema(name = "addressLine2", description = "Apartment or suite number", example = "Apt 101")
+    @Column(name = "address_line_2")
     private String addressLine2;
 
     @Schema(name = "pin", description = "pin code", example = "695524")
-    private long pin;
+    @Column(name = "pin_code")
+    private long pinCode;
+
 }

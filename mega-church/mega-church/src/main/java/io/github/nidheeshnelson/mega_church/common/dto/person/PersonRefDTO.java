@@ -13,9 +13,12 @@ public class PersonRefDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Schema(name = "RefId", description = "Unique ID of the referenced person", example = "PER-000123")
-    private String RefId;
+    @Schema(name = "personRegistered", description = "check for the person is registored")
+    private boolean personRegistered;
+
+    @Schema(name = "personRef", description = "consider it if the person is registered")
+    private PersonDTO person;
 
     @Schema(name = "name", description = "Display name", example = "Jane Doe")
-    private String name;
+    private String personName;
 }

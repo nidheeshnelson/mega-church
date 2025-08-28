@@ -2,21 +2,24 @@ package io.github.nidheeshnelson.mega_church.common.model.person;
 
 import java.util.List;
 
-import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.person.ContactDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.person.FamilyInfoDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.person.IdentityInfoDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.person.PersonalAddress;
-import io.github.nidheeshnelson.mega_church.common.dto.person.PersonalInfoDTO;
+import io.github.nidheeshnelson.mega_church.common.model.address.embeddable.QuickAddress;
+import io.github.nidheeshnelson.mega_church.common.model.house.HouseholdEntity;
+import io.github.nidheeshnelson.mega_church.common.model.person.embeddable.Contact;
+import io.github.nidheeshnelson.mega_church.common.model.person.embeddable.FamilyInfo;
+import io.github.nidheeshnelson.mega_church.common.model.person.embeddable.IdentityInfo;
 import io.github.nidheeshnelson.mega_church.common.model.person.embeddable.Name;
 import io.github.nidheeshnelson.mega_church.common.model.person.embeddable.PersonalInfo;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Schema(name = "PersonEntity", description = "complete details of a person")
@@ -38,18 +41,28 @@ public class PersonEntity {
     private PersonalInfo personalInfo;
 
     @Schema(name = "identities")
-    private List<IdentityInfoDTO> identities;
+    @ElementCollection
+    @CollectionTable(
+        name = "identities",               // table to store addresses
+        joinColumns = @JoinColumn(name = "person_id")
+    )
+    private List<IdentityInfo> identities;
 
     @Schema(name = "family")
-    private FamilyInfoDTO family;
+    @Embedded
+    private FamilyInfo familyInfo;
     
     @Schema(name = "contactDetails")
-    private ContactDTO contactDetails;
+    @Embedded
+    private Contact contactDetails;
     
     @Schema(name = "house")
-    private HouseholdDTO house;
+    @ManyToOne
+    @JoinColumn(name = "house_id")
+    private HouseholdEntity household;
 
     @Schema(name = "address")
-    private PersonalAddress address;
+    @Embedded
+    private QuickAddress personalAddress;
    
 }

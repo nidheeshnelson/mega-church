@@ -1,11 +1,11 @@
-package io.github.nidheeshnelson.mega_church.common.dto;
+package io.github.nidheeshnelson.mega_church.common.dto.house;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-import io.github.nidheeshnelson.mega_church.common.dto.address.AddressDTO;
-import io.github.nidheeshnelson.mega_church.common.dto.person.PersonDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.address.QuickAddressDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.person.PersonRefDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -23,9 +23,9 @@ public class HouseholdDTO implements Serializable {
     private String houseName;
 
     @Schema(name = "address", description = "Address of the house or group")
-    private AddressDTO address;
+    private QuickAddressDTO houseAddress;
 
     @Schema(name = "houseMembers", description = "List of members in the house")
-    private List<PersonDTO> houseMembers;
+    private List<PersonRefDTO> houseMembers;
 
 }

@@ -4,7 +4,8 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-import io.github.nidheeshnelson.mega_church.common.dto.HouseholdDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.address.QuickAddressDTO;
+import io.github.nidheeshnelson.mega_church.common.dto.house.HouseholdDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -22,21 +23,21 @@ public class PersonDTO implements Serializable {
     private NameDTO name;
 
     @Schema(name = "personal")
-    private PersonalInfoDTO personal;
+    private PersonalInfoDTO personalInfo;
 
     @Schema(name = "identities")
     private List<IdentityInfoDTO> identities;
 
     @Schema(name = "family")
-    private FamilyInfoDTO family;
+    private FamilyInfoDTO familyInfo;
     
     @Schema(name = "contactDetails")
     private ContactDTO contactDetails;
     
     @Schema(name = "house")
-    private HouseholdDTO house;
+    private HouseholdDTO household;
 
     @Schema(name = "address")
-    private PersonalAddress address;
+    private QuickAddressDTO personalAddress;
 
 }
