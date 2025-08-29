@@ -1,26 +1,31 @@
-package io.github.nidheeshnelson.mega_church.modules.office.membership.dto;
+package io.github.nidheeshnelson.mega_church.modules.office.membership.model;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.time.LocalDate;
 
-import io.github.nidheeshnelson.mega_church.common.dto.person.PersonDTO;
+import io.github.nidheeshnelson.mega_church.common.model.person.PersonEntity;
 import io.github.nidheeshnelson.mega_church.modules.office.certificate.dto.TransferCertificateDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
-@Data
-@Schema(name="MemberDTO", description = "Member of any entity")
-public class MemberDTO implements Serializable{
-    
-    @Serial
-    private static final long serialVersionUID = 1L;
+@Entity
+@Schema(name = "MemberEntity")
+public class MemberEntity {
+
+    @Schema(name = "memberId")
+    @Column(name = "member_id")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long memberId;
 
     @Schema(name = "person", description = "details about a person")
-    private PersonDTO person;
-
-    @Schema(name = "memberId", description = "Unique ID of the member", example = "101")
-    private Long memberId;
+    @OneToOne
+    @JoinColumn(name = "person_id")
+    private PersonEntity person;
 
     @Schema(name = "baptized", description = "To know the person is baptized")
     private boolean baptized;
@@ -51,5 +56,4 @@ public class MemberDTO implements Serializable{
 
     @Schema(name = "outgingTC", description = "The TC from this church")
     private TransferCertificateDTO outgingTC;
-
 }
