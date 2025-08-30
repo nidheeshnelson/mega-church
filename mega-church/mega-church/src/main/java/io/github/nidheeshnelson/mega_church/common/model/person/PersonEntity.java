@@ -19,9 +19,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Schema(name = "PersonEntity", description = "complete details of a person")
 @Entity
 @Table(name = "persons")
@@ -64,5 +68,14 @@ public class PersonEntity {
     @Schema(name = "address")
     @Embedded
     private QuickAddress personalAddress;
+
+    @Schema(name = "skills")
+    @ManyToMany
+    @JoinTable(
+        name = "person_skill_map",
+        joinColumns = @JoinColumn(name = "person_id"),
+        inverseJoinColumns = @JoinColumn(name = "skill_id")
+    )
+    private List<SkillsEntity> skills;
    
 }

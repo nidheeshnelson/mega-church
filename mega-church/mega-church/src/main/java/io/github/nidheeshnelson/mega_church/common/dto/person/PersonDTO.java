@@ -40,4 +40,7 @@ public class PersonDTO implements Serializable {
     @Schema(name = "address")
     private QuickAddressDTO personalAddress;
 
+    @Schema(name = "address")
+    private List<SkillsDTO> skills;
+
 }
